@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Упражнения на аудирование</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #56ccf2, #2f80ed); /* Градиентный фон */
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1, p {
+            color: #333;
+        }
+        audio {
+            margin: 20px 0;
+        }
+        ol {
+            list-style-type: none;
+            padding: 0;
+        }
+        li p {
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #2f80ed;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #1c60b3;
+        }
+        .correct {
+            color: green;
+            margin-left: 10px;
+        }
+        .incorrect {
+            color: red;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Упражнения на аудирование</h1>
+    <p>Прослушайте аудио и ответьте на вопросы:</p>
+    <audio controls src="https://english-study-cafe.ru/23-24/A2/party/party.mp3"></audio>
+    <ol>
+        <li>
+            <p>Maria <input type="text" id="q1" name="q1"></p>
+            <p>Barbara <input type="text" id="q2" name="q2"></p>
+            <p>Simon <input type="text" id="q3" name="q3"></p>
+            <p>Peter <input type="text" id="q4" name="q4"></p>
+            <p>Anita <input type="text" id="q5" name="q5"></p>
+            <p>Michael <input type="text" id="q6" name="q6"></p>
+            <p>---- <input type="text" id="q7" name="q7"></p>
+        </li>
+        <!-- Добавьте больше вопросов по аналогии -->
+    </ol>
+    <button onclick="checkAnswers()">Проверить ответы</button>
+    <script>
+        function checkAnswers() {
+            var correctAnswers = {
+                'q1': 'cake',
+                'q2': 'fruit',
+                'q3': 'cheese',
+                'q4': 'chicken',
+                'q5': 'bread',
+                'q6': 'salad',
+                'q7': 'fish',
+                // Добавьте остальные правильные ответы здесь
+            };
+
+            for (var question in correctAnswers) {
+                var inputElement = document.getElementById(question);
+                var iconElement = document.createElement('span');
+
+                var userAnswer = inputElement.value.trim().toLowerCase();
+                var isCorrect = userAnswer === correctAnswers[question].toLowerCase();
+
+                if (inputElement.nextSibling) {
+                    inputElement.parentNode.removeChild(inputElement.nextSibling);
+                }
+
+                if (isCorrect) {
+                    iconElement.textContent = '✓';
+                    iconElement.className = 'correct';
+                } else {
+                    iconElement.textContent = '✗';
+                    iconElement.className = 'incorrect';
+                }
+
+                inputElement.parentNode.insertBefore(iconElement, inputElement.nextSibling);
+            }
+        }
+    </script>
+</body>
+</html>

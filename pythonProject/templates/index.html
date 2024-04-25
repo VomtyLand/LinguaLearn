@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Регистрация и Вход</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #56ccf2, #2f80ed); /* Градиентный фон */
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h2, p {
+            color: #333;
+        }
+        div {
+            margin: 20px 0;
+        }
+        button {
+            background: #2f80ed;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1c60b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Добро пожаловать!</h2>
+    <p>Пожалуйста, выберите действие:</p>
+    <div>
+        <form action="/register" method="get">
+            <button type="submit">Регистрация</button>
+        </form>
+        <form action="/login" method="get">
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</body>
+</html>
